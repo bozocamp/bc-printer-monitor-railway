@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BC Printer Monitor - Real Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BC Printer Status Monitor</h1>
+            <p>Real-time status of Boston College printers with live SNMP data</p>
+            <div class="server-status">
+                <span id="serverStatus" class="server-offline">Checking server connection...</span>
+            </div>
+        </header>
+
+        <div class="controls">
+            <button id="refreshBtn">🔄 Refresh All Status</button>
+            <button id="refreshDetailsBtn">📊 Refresh Details</button>
+            <span id="lastUpdated"></span>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Total Printers:</span>
+                <span class="stat-value" id="totalPrinters">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Online:</span>
+                <span class="stat-value online" id="onlinePrinters">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Offline:</span>
+                <span class="stat-value offline" id="offlinePrinters">0</span>
+            </div>
+        </div>
+
+        <div class="printers-grid" id="printersContainer">
+            <!-- Printer cards will be loaded here -->
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Querying real printer data via SNMP...</p>
+        </div>
+
+        <footer>
+            <p>BC Printer Monitor v2.0 | Real-time SNMP Monitoring | Deployed on Railway</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
